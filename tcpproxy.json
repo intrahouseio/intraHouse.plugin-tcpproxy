@@ -22,7 +22,7 @@
       "note": "$Rport",
       "type": "number",
       "val": "80"
-    },
+    }
   ],
   "genrules": {},
   "commands": []
