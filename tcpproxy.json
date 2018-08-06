@@ -1,0 +1,29 @@
+{
+  "id": "tcpproxy",
+  "description": "TCP proxy",
+  "gendevices": 0,
+  "single":0,
+  "module": "index.js",
+  "params": [
+    {
+      "name": "lport",
+      "note": "$Lport",
+      "type": "number",
+      "val": "9090"
+    },
+    {
+      "name": "rhost",
+      "note": "$Rhost",
+      "type": "string",
+      "val": "192.168.0.101"
+    },
+    {
+      "name": "rport",
+      "note": "$Rport",
+      "type": "number",
+      "val": "80"
+    },
+  ],
+  "genrules": {},
+  "commands": []
+}
