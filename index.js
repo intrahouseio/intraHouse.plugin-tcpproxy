@@ -20,7 +20,8 @@ plugin.on('debug', mode => {
 
 
 function start(options) {
-
+  plugin.debug('version 0.0.2');
+  plugin.debug('start');
 
   const localport = options.lport;
   const remotehost = options.rhost;
@@ -41,11 +42,11 @@ function start(options) {
       debug && plugin.debug('--> \r\n' + data.toString())
       try {
         const flushed = remotesocket.write(data);
+        if (!flushed) {
+          localsocket.pause();
+        }
       } catch (e) {
 
-      }
-      if (!flushed) {
-        localsocket.pause();
       }
     });
 
@@ -53,11 +54,11 @@ function start(options) {
       debug && plugin.debug('<-- \r\n' + data.toString())
       try {
         const flushed = localsocket.write(data);
+        if (!flushed) {
+          remotesocket.pause();
+        }
       } catch (e) {
 
-      }
-      if (!flushed) {
-        remotesocket.pause();
       }
     });
 
